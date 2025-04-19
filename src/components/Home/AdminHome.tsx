@@ -16,7 +16,7 @@ const AdminHome = () => {
       }
 
       const response = await axios.get(
-        "http://localhost:3000/api/user/get-users-with-products",
+        `${import.meta.env.VITE_API_URL}/api/user/get-users-with-products`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ const AdminHome = () => {
       }
 
       const response = await axios.get(
-        `http://localhost:3000/api/user/delete/${userId}`,
+        `${import.meta.env.VITE_API_URL}/api/user/delete/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -51,7 +51,7 @@ function App() {
   useEffect(() => {
     const checkServerConnection = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/");
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}`);
         setMessage(response.data);
       } catch (error) {
         console.error("Error connecting to the server:", error);
