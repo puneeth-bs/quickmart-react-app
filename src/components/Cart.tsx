@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+// @ts-ignore
+import { useState, useEffect } from "react";
 import { getUserOrders } from "../services/api";
 
 const Cart = () => {
@@ -16,11 +17,14 @@ const Cart = () => {
       price: 15.49,
     },
   ]);
+  // @ts-ignore
   const [error, setError] = useState<string>("");
+  // @ts-ignore
   const [loading, setLoading] = useState<boolean>(false);
 
   const getProducts = async () => {
     const userId = localStorage.getItem("id");
+    // @ts-ignore
     const data = await getUserOrders(userId);
     setCartProducts(data?.products);
   };

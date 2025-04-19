@@ -6,8 +6,6 @@ import SignUpPage from "./components/SignUp";
 import LoginPage from "./components/LoginPage";
 import ProductPage from "./components/ProductPage";
 import SellerForm from "./components/SellerForm";
-import { Provider, useSelector, useDispatch } from "react-redux";
-import appStore from "../utils/store";
 import LandingPage from "./components/LandingPage";
 import Profile from "./components/Profile/Profile";
 import SellerHome from "./components/Home/SellerHome";
@@ -21,6 +19,7 @@ import AdminHome from "./components/Home/AdminHome";
 import AnonymousProfile from "./components/Profile/AnonymousProfile";
 
 function App() {
+  // @ts-ignore
   const [message, setMessage] = useState("");
 
   const [isAuthenticated, setIsAuthenticated] = useState(
