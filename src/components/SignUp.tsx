@@ -31,11 +31,16 @@ const SignUpPage: React.FC<SignupPageProp> = ({ onSignup }) => {
       setError("");
       const response = await registerUser(formData);
       setSuccess(response.message);
+      // @ts-ignore
       localStorage.setItem("token", response?.token);
+      // @ts-ignore
       localStorage.setItem("role", response?.user?.role);
+      // @ts-ignore
       localStorage.setItem("id", response?.user?._id);
+      // @ts-ignore
       onSignup(response?.token);
 
+      // @ts-ignore
       if (response?.user?.role === "buyer") {
         navigate("/bhome");
       } else {

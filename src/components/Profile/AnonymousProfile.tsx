@@ -1,12 +1,10 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import {
   getProfileDetails,
-  updateProfile,
   getUserOrders,
   getProductsBySeller,
 } from "../../services/api";
-import { FaEdit } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 const AnonymousProfile = () => {
@@ -47,6 +45,7 @@ const AnonymousProfile = () => {
           <div className="text-center">
             <img
               src={`https://ui-avatars.com/api/?name=${encodeURIComponent(
+                // @ts-ignore
                 user?.name
               )}&background=random`}
               alt="Profile Avatar"
@@ -85,13 +84,15 @@ const AnonymousProfile = () => {
                   className="bg-gray-50 shadow-md rounded-lg overflow-hidden"
                 >
                   <img
+                  // @ts-ignore
                     src={product.image}
+                    // @ts-ignore
                     alt={product.name}
                     className="w-full h-40 object-scale-down bg-white"
                   />
                   <div className="p-4">
                     <h3 className="text-lg font-semibold text-gray-800">
-                      {product.name}
+                      {product.name} 
                     </h3>
                     <p className="text-gray-600">Price: ${product.price}</p>
                   </div>

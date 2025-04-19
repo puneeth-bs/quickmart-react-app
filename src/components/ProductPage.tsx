@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { buyProduct } from "../services/api";
 
 const ProductPage: React.FC = () => {
-  const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const product = location?.state;

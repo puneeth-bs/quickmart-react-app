@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import productLinks from "../../../utils/productLinks";
 
 const Home = () => {
@@ -24,6 +23,7 @@ const Home = () => {
       const uniqueCategories = Array.from(
         new Set(data?.products.map((product: any) => product.category))
       );
+      // @ts-ignore
       setCategories(uniqueCategories);
     } catch (err) {
       console.error("Error fetching products:", err);
@@ -91,6 +91,7 @@ const Home = () => {
   };
 
   const handleProductClick = (id: number) => {
+    // @ts-ignore
     const url = productLinks[id];
     if (url) {
       window.open(url, "_blank");

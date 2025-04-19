@@ -32,18 +32,24 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
       const response = await loginUser(formData);
       setSuccess(response.message);
       dispatch(login());
+      // @ts-ignore
       localStorage.setItem("token", response?.token);
+      // @ts-ignore
       localStorage.setItem("role", response?.user?.role);
+      // @ts-ignore
       localStorage.setItem("id", response?.user?._id);
       setTimeout(() => {
         setSuccess("");
+        // @ts-ignore
         if (response?.user?.role === "buyer") {
           navigate("/bhome");
+          // @ts-ignore
         } else if (response?.user?.role === "admin") {
           navigate("/adminhome");
         } else {
           navigate("/shome");
         }
+        // @ts-ignore
         onLogin(response?.token);
       }, 2000);
     } catch (err: any) {

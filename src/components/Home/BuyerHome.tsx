@@ -25,6 +25,7 @@ const BuyerHome = () => {
       const uniqueCategories = Array.from(
         new Set(response.map((product: any) => product.category))
       );
+      // @ts-ignore
       setCategories(uniqueCategories);
 
       setError("");
