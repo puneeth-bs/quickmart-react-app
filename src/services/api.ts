@@ -25,6 +25,11 @@ const productAPI = axios.create({
   withCredentials: true,
 });
 
+const reviewAPI = axios.create({
+  baseURL: `${import.meta.env.VITE_API_URL}/api/review`,
+  withCredentials: true,
+});
+
 // Login API
 export const loginUser = async (
   data: LoginData
@@ -136,3 +141,15 @@ export const getUserOrders = async (userId: string): Promise<any> => {
   const response = await userAPI.post("/products-bought", { userId });
   return response.data;
 }
+
+export const addProductReview = async (productId: string, data : JSON): Promise<any> => {
+  console.log(data)
+  const response = await reviewAPI.post(`/${productId}`, data);
+  return response.data;
+}
+
+export const getReviewsForProduct = async (productId : String) => {
+  const res = await reviewAPI.get(`/${productId}`);
+  console.log(res.data)
+  return res.data;
+};

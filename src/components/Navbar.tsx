@@ -69,6 +69,22 @@ const Navbar: React.FC<LogoutPageProps> = ({ onLogout }) => {
             >
               Home
             </NavLink>
+            {userRole !== "admin" && (
+              <li>
+                <NavLink
+                  to="/aboutus"
+                  className={({ isActive }) =>
+                    `block px-5 py-2 font-semibold transition ${
+                      isActive
+                        ? "text-white border-b-2 border-white"
+                        : "text-white hover:text-violet-300"
+                    }`
+                  }
+                >
+                  About Us
+                </NavLink>
+              </li>
+            )}
 
             <li>
               <NavLink
